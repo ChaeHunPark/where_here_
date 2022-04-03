@@ -2,15 +2,15 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 
     <item
-        android:id="@+id/searchItem"
+        android:id="@+id/navi_map"
 
         android:title="맵" />
     <item
-        android:id="@+id/cameraItem"
+        android:id="@+id/navi_reco"
 
         android:title="추천코스" />
     <item
-        android:id="@+id/callItem"
+        android:id="@+id/navi_info"
 
         android:title="운휴정보" />
 </menu>

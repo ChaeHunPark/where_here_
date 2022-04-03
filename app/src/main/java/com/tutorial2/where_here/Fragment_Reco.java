@@ -7,16 +7,23 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ListView;
 
 
-public class Fragmant_Reco extends Fragment {
+public class Fragment_Reco extends Fragment {
 
-    //추천코스 클래스
+    ListView list;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.activity_fragmant_reco, container, false);
+        return inflater.inflate(R.layout.activity_fragment_reco, container, false);
     }
+
+    Integer[] images = {
+            R.drawable.ic_launcher_foreground
+    };
+
+
 }
