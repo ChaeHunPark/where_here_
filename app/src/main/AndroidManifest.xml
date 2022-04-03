@@ -10,15 +10,21 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Where_here">
         <activity
-            android:name=".MainActivity"
-            android:exported="true"
-            android:label="@string/app_name"
-            android:theme="@style/Theme.Where_here.NoActionBar">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
+            android:name=".Fragment_Main"
+            android:exported="true" >
+        <intent-filter>
+            <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
+            <category android:name="android.intent.category.LAUNCHER" />
+        </intent-filter>
+        </activity>
+        <activity
+            android:name=".Fragmant_Reco"
+            android:exported="true" />
+        <activity
+            android:name=".Fragment_map"
+            android:exported="true" >
+
         </activity>
     </application>
 
