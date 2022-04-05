@@ -3,14 +3,14 @@ package com.tutorial2.where_here;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentManager;
-import androidx.fragment.app.FragmentTransaction;
 
 import android.os.Bundle;
 import android.view.MenuItem;
-import android.view.View;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.tutorial2.where_here.fragment.Fragment_Info;
+import com.tutorial2.where_here.fragment.Fragment_Reco;
+import com.tutorial2.where_here.fragment.Fragment_map;
 
 public class Main_where extends AppCompatActivity {
     BottomNavigationView bottomNavigationView;

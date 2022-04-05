@@ -1,4 +1,4 @@
-package com.tutorial2.where_here;
+package com.tutorial2.where_here.fragment;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
@@ -7,6 +7,8 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+
+import com.tutorial2.where_here.R;
 
 public class Fragment_map extends Fragment {
 

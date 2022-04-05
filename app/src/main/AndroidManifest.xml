@@ -10,7 +10,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Where_here" >
         <activity
-            android:name=".Fragment_Info"
+            android:name=".fragment.Fragment_Info"
             android:exported="true" />
         <activity
             android:name=".Main_where"
@@ -22,10 +22,10 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".Fragment_Reco"
+            android:name=".fragment.Fragment_Reco"
             android:exported="true" />
         <activity
-            android:name=".Fragment_map"
+            android:name=".fragment.Fragment_map"
             android:exported="true" >
         </activity>
     </application>
