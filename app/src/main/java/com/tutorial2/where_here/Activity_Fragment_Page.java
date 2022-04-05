@@ -12,7 +12,7 @@ import com.tutorial2.where_here.fragment.Fragment_Info;
 import com.tutorial2.where_here.fragment.Fragment_Reco;
 import com.tutorial2.where_here.fragment.Fragment_Map;
 
-public class Fragment_Page extends AppCompatActivity {
+public class Activity_Fragment_Page extends AppCompatActivity {
     BottomNavigationView bottomNavigationView;
 
     Fragment fragment_Map;

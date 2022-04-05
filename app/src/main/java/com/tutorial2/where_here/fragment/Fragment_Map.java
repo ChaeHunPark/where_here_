@@ -1,6 +1,5 @@
 package com.tutorial2.where_here.fragment;
 
-import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 
 import android.os.Bundle;
@@ -16,6 +15,6 @@ public class Fragment_Map extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.activity_fragment_map, container, false);
+        return inflater.inflate(R.layout.fragment_map, container, false);
     }
 }
