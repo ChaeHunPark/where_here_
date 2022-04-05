@@ -10,21 +10,21 @@ import android.view.MenuItem;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.tutorial2.where_here.fragment.Fragment_Info;
 import com.tutorial2.where_here.fragment.Fragment_Reco;
-import com.tutorial2.where_here.fragment.Fragment_map;
+import com.tutorial2.where_here.fragment.Fragment_Map;
 
-public class Main_where extends AppCompatActivity {
+public class Fragment_Page extends AppCompatActivity {
     BottomNavigationView bottomNavigationView;
 
-    Fragment fragment_map;
+    Fragment fragment_Map;
     Fragment fragment_Reco;
     Fragment fragment_Info;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main_where);
+        setContentView(R.layout.activity_fragment_page);
 
-        fragment_map = new Fragment_map();
+        fragment_Map = new Fragment_Map();
         fragment_Reco = new Fragment_Reco();
         fragment_Info = new Fragment_Info();
 
@@ -32,7 +32,7 @@ public class Main_where extends AppCompatActivity {
         bottomNavigationView = findViewById(R.id.bottomNav);
 
         //처음 화면 fragment_map로 나오게 설정
-        getSupportFragmentManager().beginTransaction().replace(R.id.main_layout, fragment_map).commitAllowingStateLoss();
+        getSupportFragmentManager().beginTransaction().replace(R.id.main_layout, fragment_Map).commitAllowingStateLoss();
 
         BottomNavigationView bottomNavigationView;
 
@@ -45,7 +45,7 @@ public class Main_where extends AppCompatActivity {
 
                 switch(item.getItemId()){
                     case R.id.navi_map:
-                        getSupportFragmentManager().beginTransaction().replace(R.id.main_layout, fragment_map).commitAllowingStateLoss();
+                        getSupportFragmentManager().beginTransaction().replace(R.id.main_layout, fragment_Map).commitAllowingStateLoss();
                         return true;
 
                     case R.id.navi_reco:

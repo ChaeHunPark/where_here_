@@ -23,9 +23,4 @@ public class Fragment_Reco extends Fragment {
         return inflater.inflate(R.layout.activity_fragment_reco, container, false);
     }
 
-    Integer[] images = {
-            R.drawable.ic_launcher_foreground
-    };
-
-
 }

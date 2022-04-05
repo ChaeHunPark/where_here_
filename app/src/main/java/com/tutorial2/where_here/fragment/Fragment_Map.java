@@ -10,7 +10,7 @@ import android.view.ViewGroup;
 
 import com.tutorial2.where_here.R;
 
-public class Fragment_map extends Fragment {
+public class Fragment_Map extends Fragment {
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
