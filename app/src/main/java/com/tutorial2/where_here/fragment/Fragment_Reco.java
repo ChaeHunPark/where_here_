@@ -59,7 +59,7 @@ public class Fragment_Reco extends Fragment {
             try {
                 /* Jsoup을 이용해 데이터 가져오기 */
                 Document document = Jsoup.connect("https://www.gjw.co.kr/Contents/contents.php?cmsNo=DB0200/view/50").get(); //URL 웹사이트에 있는 html 코드를 다 끌어오기
-//                Elements doc = document.select("div.rpsa_detail > div > div");
+//                Elements doc = document.select("div.rpsa_detail > div > div");dd
                 Elements doc = document.select(".WrapWidth");
 
                 int region_num = 0;
