@@ -19,7 +19,7 @@
         android:id="@+id/button"
         android:layout_width="111dp"
         android:layout_height="43dp"
-        android:backgroundTint="#00D8FF"
+        android:backgroundTint="@color/teal_200"
         android:text="지  도"
         android:textColor="@color/black"
         tools:layout_editor_absoluteX="150dp"
@@ -30,7 +30,7 @@
         android:layout_width="111dp"
         android:layout_height="43dp"
         android:text="추  천"
-        android:backgroundTint="#00D8FF"
+        android:backgroundTint="@color/teal_200"
         android:textColor="@color/black"
         tools:layout_editor_absoluteX="150dp"
         tools:layout_editor_absoluteY="490dp" />
@@ -40,7 +40,7 @@
         android:layout_width="111dp"
         android:layout_height="43dp"
         android:text="시설 정보"
-        android:backgroundTint="#00D8FF"
+        android:backgroundTint="@color/teal_200"
         android:textColor="@color/black"
         tools:layout_editor_absoluteX="150dp"
         tools:layout_editor_absoluteY="550dp" />
