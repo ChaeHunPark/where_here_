@@ -1,5 +1,5 @@
 // fragment_map
-// naver map api, floating_btn <=> layout:invisible(gone)/visible
+// naver map api, floating_btn <=> layout:invisible(gone)/visible..
 
 package com.tutorial2.where_here.fragment;
 
