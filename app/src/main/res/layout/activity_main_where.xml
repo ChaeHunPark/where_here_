@@ -1,47 +1,58 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    tools:context=".Main_where">
 
     <TextView
         android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="200dp"
         android:text="여긴 어디?"
         android:textAlignment="center"
         android:textSize="50dp"
-
-        tools:layout_editor_absoluteX="95dp"
-        tools:layout_editor_absoluteY="127dp" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <Button
-        android:id="@+id/button"
-        android:layout_width="111dp"
-        android:layout_height="43dp"
+        android:id="@+id/btn_1"
+        android:layout_width="140dp"
+        android:layout_height="60dp"
+        android:layout_marginBottom="30dp"
         android:backgroundTint="@color/teal_200"
         android:text="지  도"
         android:textColor="@color/black"
-        tools:layout_editor_absoluteX="150dp"
-        tools:layout_editor_absoluteY="430dp" />
+        app:layout_constraintBottom_toTopOf="@+id/button2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <Button
         android:id="@+id/button2"
-        android:layout_width="111dp"
-        android:layout_height="43dp"
-        android:text="추  천"
+        android:layout_width="140dp"
+        android:layout_height="60dp"
+        android:layout_marginBottom="30dp"
         android:backgroundTint="@color/teal_200"
+        android:text="추  천"
         android:textColor="@color/black"
-        tools:layout_editor_absoluteX="150dp"
-        tools:layout_editor_absoluteY="490dp" />
+        app:layout_constraintBottom_toTopOf="@+id/button3"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <Button
         android:id="@+id/button3"
-        android:layout_width="111dp"
-        android:layout_height="43dp"
-        android:text="시설 정보"
+        android:layout_width="140dp"
+        android:layout_height="60dp"
+        android:layout_marginBottom="170dp"
         android:backgroundTint="@color/teal_200"
+        android:text="시설 정보"
         android:textColor="@color/black"
-        tools:layout_editor_absoluteX="150dp"
-        tools:layout_editor_absoluteY="550dp" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.501"
+        app:layout_constraintStart_toStartOf="parent" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -10,7 +10,6 @@ import android.view.MenuItem;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.tutorial2.where_here.fragment.Fragment_Info;
 import com.tutorial2.where_here.fragment.Fragment_Reco;
-import com.tutorial2.where_here.fragment.Fragment_Map;
 
 public class Activity_Fragment_Page extends AppCompatActivity {
     BottomNavigationView bottomNavigationView;
@@ -24,7 +23,7 @@ public class Activity_Fragment_Page extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_fragment_page);
 
-        fragment_Map = new Fragment_Map();
+
         fragment_Reco = new Fragment_Reco();
         fragment_Info = new Fragment_Info();
 
