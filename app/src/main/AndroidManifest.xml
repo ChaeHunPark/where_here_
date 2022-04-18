@@ -14,6 +14,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Where_here">
         <activity
+            android:name=".Reco"
+            android:exported="false" />
+        <activity
             android:name=".Map"
             android:exported="false" />
         <activity
