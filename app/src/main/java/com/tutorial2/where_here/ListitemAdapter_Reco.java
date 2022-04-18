@@ -8,9 +8,13 @@ import android.widget.BaseAdapter;
 import android.widget.TextView;
 
 
+import androidx.appcompat.app.AppCompatActivity;
+
 import java.util.ArrayList;
 
 public class ListitemAdapter_Reco extends BaseAdapter {
+
+
     ArrayList<Listitem_Reco> items = new ArrayList<Listitem_Reco>();
     Context context;
 
@@ -52,4 +56,6 @@ public class ListitemAdapter_Reco extends BaseAdapter {
     }
 
     public void addItem(Listitem_Reco item){ items.add(item);} //
+
+
 }
