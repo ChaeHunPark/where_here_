@@ -16,7 +16,7 @@ import java.io.IOException;
 
 public class Reco extends AppCompatActivity {
     private String htmlPageUrl = "https://www.gjw.co.kr/Contents/contents.php?cmsNo=DB0200";
-    private String htmlContentInStringFormat;
+    private String htmlContentInStringFormat = "";
     private TextView textviewHtmlDocument;
 
     @Override
@@ -38,14 +38,17 @@ private class JsoupAsyncTask extends AsyncTask<Void, Void, Void> {
 
     @Override
     protected Void doInBackground(Void... params) {
-        //arrt은 태그이름 반환 (속성:href), .text는 태그안에 있는 요소만 반환
-        //.trim() 앞뒤로 공백없애줌
         try {
             Document doc = Jsoup.connect(htmlPageUrl).get();
-            Elements links = doc.select("div#50");
+//            Elements links = doc.select("a[href]");
+//            Elements links = doc.select("body > div#WrapContents > div#WrapPrint");
+            Elements links = doc.select("body > div#WrapContents > div#WrapPrint");
+            for (Element link : links) { //스트링으로 포맷
+                htmlContentInStringFormat += ( link.text().trim() + "\n");
 
-            for (Element link : links) {
-                htmlContentInStringFormat += (link.text().trim() + "\n");
+
+                //arrt은 태그이름 반환 (속성:href), .text는 태그안에 있는 요소만 반환
+                //.trim() 앞뒤로 공백없애줌
             }
 
         } catch (IOException e) {
@@ -59,7 +62,8 @@ private class JsoupAsyncTask extends AsyncTask<Void, Void, Void> {
         ListView listView = (ListView) findViewById(R.id.list_reco); // 리스트의 아이디
         ListitemAdapter_Reco adapter = new ListitemAdapter_Reco(); // adapter에 어댑터 클래스 참조
         listView.setAdapter(adapter); // 찾은 아이디에 어댑터 지정
-        adapter.addItem(new Listitem_Reco("123123", htmlContentInStringFormat)); // 어댑터에 additem
+
+        adapter.addItem(new Listitem_Reco("개발중", htmlContentInStringFormat));
 
     }
 }

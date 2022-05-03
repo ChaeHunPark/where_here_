@@ -10,7 +10,7 @@
         android:layout_width="100dp"
         android:layout_height="100dp"
         android:layout_alignParentLeft="true"
-        android:layout_marginRight="8dp"/>
+        android:layout_marginRight="8dp" />
 
     <TextView
         android:id="@+id/title_reco"
@@ -27,5 +27,5 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/title_reco"
         android:layout_toRightOf="@+id/image_reco"
-        android:textSize="15dp"/>
+        android:textSize="15dp" />
 </RelativeLayout>

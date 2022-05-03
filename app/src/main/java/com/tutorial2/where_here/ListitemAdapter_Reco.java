@@ -31,6 +31,8 @@ public class ListitemAdapter_Reco extends BaseAdapter {
         return position;
     } //아이템 ID반환
 
+
+
     @Override
     public View getView(int position, View convertView, ViewGroup parent){
         context = parent.getContext();
