@@ -23,11 +23,11 @@ public class Main_where extends AppCompatActivity {
             }
         });
 
-        Button btn_2 = (Button) findViewById(R.id.button2);
+        Button btn_2 = (Button) findViewById(R.id.button3);
         btn_2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(Main_where.this,Reco.class);
+                Intent intent = new Intent(Main_where.this, Info.class);
                 startActivity(intent);
             }
         });

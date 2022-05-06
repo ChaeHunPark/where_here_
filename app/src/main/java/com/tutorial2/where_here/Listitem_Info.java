@@ -1,12 +1,16 @@
 package com.tutorial2.where_here;
 
-public class Listitem_Reco {
+import android.graphics.drawable.Drawable;
+
+public class Listitem_Info {
     private String title;
     private String intro;
+    private int images;
 
-    public Listitem_Reco(String title, String intro){
+    public Listitem_Info(String title, String intro, int images){
         this.title = title;
         this.intro = intro;
+        this.images = images;
     }
 
     public String getTitle(){
@@ -23,5 +27,13 @@ public class Listitem_Reco {
 
     public void setIntro(String intro) {
         this.intro = intro;
+    }
+
+    public int getImages() {
+        return images;
+    }
+
+    public void setImages(int images) {
+        this.images = images;
     }
 }

@@ -14,7 +14,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Where_here">
         <activity
-            android:name=".Reco"
+            android:name=".Info"
             android:exported="false" />
         <activity
             android:name=".Map"
@@ -28,9 +28,6 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity
-            android:name=".Activity_Fragment_Page"
-            android:exported="true" />
 
         <meta-data
             android:name="com.naver.maps.map.CLIENT_ID"

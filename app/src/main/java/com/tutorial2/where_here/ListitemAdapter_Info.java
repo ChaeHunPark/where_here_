@@ -5,17 +5,16 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import java.util.ArrayList;
 
-public class ListitemAdapter_Reco extends BaseAdapter {
+public class ListitemAdapter_Info extends BaseAdapter {
 
 
-    ArrayList<Listitem_Reco> items = new ArrayList<Listitem_Reco>();
+    ArrayList<Listitem_Info> items = new ArrayList<Listitem_Info>();
     Context context;
 
     @Override
@@ -36,28 +35,30 @@ public class ListitemAdapter_Reco extends BaseAdapter {
     @Override
     public View getView(int position, View convertView, ViewGroup parent){
         context = parent.getContext();
-        Listitem_Reco listitem_reco = items.get(position);
+        Listitem_Info listitem_info = items.get(position);
 
 //        "listview_item" Layout을 inflate하여 convertView 참조 획득.
         if (convertView == null){
             LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-            convertView = inflater.inflate(R.layout.reco_item, parent, false);
+            convertView = inflater.inflate(R.layout.info_item, parent, false);
         }
 
         // 화면에 표시될 View(Layout이 inflate된)으로부터 위젯에 대한 참조 획득
-        TextView reco_title = convertView.findViewById(R.id.title_reco);
-        TextView reco_intro = convertView.findViewById(R.id.intro_reco);
+        TextView reco_title = convertView.findViewById(R.id.title_info);
+        TextView reco_intro = convertView.findViewById(R.id.intro_info);
+        ImageView reco_image = convertView.findViewById(R.id.image_info);
 
 
     // Data Set(Listitme_Reco)에서 position에 위치한 데이터 참조 획득
-        reco_title.setText(listitem_reco.getTitle());
-        reco_intro.setText(listitem_reco.getIntro());
+        reco_title.setText(listitem_info.getTitle());
+        reco_intro.setText(listitem_info.getIntro());
+        reco_image.setImageResource(listitem_info.getImages());
 
         return convertView;
 
     }
 
-    public void addItem(Listitem_Reco item){ items.add(item);} //
+    public void addItem(Listitem_Info item){ items.add(item);} //
 
 
 }

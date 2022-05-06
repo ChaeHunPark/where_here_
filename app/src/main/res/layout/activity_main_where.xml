@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Main_where">
+    tools:context=".Main_where"
+    android:background="@drawable/amusement_park">
 
     <TextView
         android:id="@+id/textView"
