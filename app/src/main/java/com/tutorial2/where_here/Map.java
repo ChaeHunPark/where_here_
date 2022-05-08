@@ -29,6 +29,7 @@ import com.naver.maps.map.util.FusedLocationSource;
 import com.tutorial2.where_here.lat_lng.lating;
 
 
+import java.util.HashMap;
 import java.util.List;
 
 public class Map extends AppCompatActivity implements OnMapReadyCallback {
@@ -37,7 +38,8 @@ public class Map extends AppCompatActivity implements OnMapReadyCallback {
     private static final int LOCATION_PERMISSION_REQUEST_CODE = 1000;
     private FusedLocationSource locationSource;
     private NaverMap naverMap;
-    public lating m = new lating();
+    public lating lat_info = new lating();
+
 
 
     @Override
@@ -54,6 +56,7 @@ public class Map extends AppCompatActivity implements OnMapReadyCallback {
         CheckBox rest = (CheckBox) findViewById(R.id.btn_restaurant);
         CheckBox toilet = (CheckBox) findViewById(R.id.btn_toilet);
         CheckBox cigar = (CheckBox) findViewById(R.id.btn_cigar);
+
 
 
 //위치설정
@@ -91,15 +94,84 @@ public class Map extends AppCompatActivity implements OnMapReadyCallback {
             public void onClick(View view) {
 //check checkbox status
                 if (park.isChecked()) {
-                    // marker on
-                    for(int i = 0; i<2; i++){
-                        setMarker(m.makerr[i], m.latingg[i], m.lngingg[i], R.drawable.marker, 0);
+// marker on
+                    for(int i = 0; i<=28; i++){
+                        setMarker(lat_info.marker_1[i], lat_info.lat_1[i], lat_info.lng_1[i], R.drawable.park, 0);
                     }
-//                    setMarker(m.marker1, 35.8373, 129.2821, R.drawable.marker, 0);
                 } else {
-                    // marker off
-//                    setMarker(null);
-                    m.marker1.setMap(null);
+// marker off
+
+                    for(int i=0;i<=28;i++) {
+                        lat_info.marker_1[i].setMap(null);
+                    }
+                }
+            }
+        });
+//        photo.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                if (park.isChecked()) {
+//// marker on
+//                    for(int i = 0; i<=4; i++){
+//                        setMarker(lat_info.marker_1[i], lat_info.lat_1[i], lat_info.lng_1[i], R.drawable.park, 0);
+//                    }
+//                } else {
+//// marker off
+//
+//                    for(int i=0;i<=4;i++) {
+//                        lat_info.marker_1[i].setMap(null);
+//                    }
+//                }
+//            }
+//        });
+        rest.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (rest.isChecked()) {
+// marker on
+                    for(int i = 0; i<=15; i++){
+                        setMarker(lat_info.marker_r[i], lat_info.lat_r[i], lat_info.lng_r[i], R.drawable.restaurant, 0);
+                    }
+                } else {
+// marker off
+
+                    for(int i=0;i<=15;i++) {
+                        lat_info.marker_r[i].setMap(null);
+                    }
+                }
+            }
+        });
+        toilet.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (toilet.isChecked()) {
+// marker on
+                    for(int i = 0; i<=6; i++){
+                        setMarker(lat_info.marker_t[i], lat_info.lat_t[i], lat_info.lng_t[i], R.drawable.toilet, 0);
+                    }
+                } else {
+// marker off
+
+                    for(int i=0;i<=6;i++) {
+                        lat_info.marker_t[i].setMap(null);
+                    }
+                }
+            }
+        });
+        cigar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (cigar.isChecked()) {
+// marker on
+                    for(int i = 0; i<=4; i++){
+                        setMarker(lat_info.marker_c[i], lat_info.lat_c[i], lat_info.lng_c[i], R.drawable.cigar, 0);
+                    }
+                } else {
+// marker off
+
+                    for(int i=0;i<=4;i++) {
+                        lat_info.marker_c[i].setMap(null);
+                    }
                 }
             }
         });
@@ -136,8 +208,8 @@ public class Map extends AppCompatActivity implements OnMapReadyCallback {
 //마커 표시
         marker.setMap(naverMap);
 //마커 사이즈
-        marker.setWidth(200);
-        marker.setHeight(200);
+        marker.setWidth(100);
+        marker.setHeight(100);
     }
 
 //현재 위치 사용권한 요청
