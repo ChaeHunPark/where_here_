@@ -22,4 +22,5 @@ public class lating {
     public double[] latingg = {35.8373,35.8363};
     public double[] lngingg = {129.2821,129.2811};
 
+
 }

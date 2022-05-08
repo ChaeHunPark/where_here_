@@ -37,21 +37,26 @@ public class Info extends AppCompatActivity {
 
                 String title = item.getTitle();
                 String intro = item.getIntro();
-                int images = item.getImages();
 
+                for(int i = 0; i<29; i++) {
 
-                AlertDialog.Builder builder = new AlertDialog.Builder(Info.this);
-                builder.setTitle(title);
-                builder.setMessage(intro);
-                builder.setPositiveButton("타러가기", new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
-                        Intent intent = new Intent(Info.this,Map.class);
-                        startActivity(intent);
+                    if (title.substring(0) == info_strings.info_title[i]) {
+                        AlertDialog.Builder builder = new AlertDialog.Builder(Info.this);
+                        builder.setTitle(title);
+                        builder.setMessage(intro);
+                        builder.setPositiveButton(info_strings.info_title[i]+" 타러가기", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+                                Intent intent = new Intent(Info.this, Map.class);
+                                startActivity(intent);
+                            }
+                        });
+                        builder.setNeutralButton("닫기", null);
+                        builder.create().show();
                     }
-                });
-                builder.setNeutralButton("닫기",null);
-                builder.create().show();
+
+                }
+
 
             }
         });
