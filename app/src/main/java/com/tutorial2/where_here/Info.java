@@ -15,6 +15,7 @@ import com.tutorial2.where_here.Info_Strings.Info_Strings;
 public class Info extends AppCompatActivity {
 
     public Info_Strings info_strings = new Info_Strings();
+    public static int Rides_Index;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,10 +28,10 @@ public class Info extends AppCompatActivity {
 
         for (int i = 0; i < 29; i++){
             adapter.addItem(new Listitem_Info(info_strings.info_title[i],info_strings.info_intro[i],
-                    info_strings.info_images[i]));
+                    info_strings.info_images[i])); // 커스텀 리스트 add
         }
 
-        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() { // 인덱스 클릭했을때 이벤트 지정
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 Listitem_Info item = (Listitem_Info) parent.getItemAtPosition(position); //item에 포지션 반환
@@ -40,14 +41,15 @@ public class Info extends AppCompatActivity {
 
                 for(int i = 0; i<29; i++) {
 
-                    if (title.substring(0) == info_strings.info_title[i]) {
+                    if (title.substring(0) == info_strings.info_title[i]) { // 다이얼로그
+                        Rides_Index = i; //Info_to_Map에서 인덱스으로 값 사용
                         AlertDialog.Builder builder = new AlertDialog.Builder(Info.this);
                         builder.setTitle(title);
                         builder.setMessage(intro);
                         builder.setPositiveButton(info_strings.info_title[i]+" 타러가기", new DialogInterface.OnClickListener() {
                             @Override
                             public void onClick(DialogInterface dialog, int which) {
-                                Intent intent = new Intent(Info.this, Map.class);
+                                Intent intent = new Intent(Info.this, Info_to_Map.class);
                                 startActivity(intent);
                             }
                         });
@@ -62,14 +64,15 @@ public class Info extends AppCompatActivity {
         });
 
 
-
 //        JsoupAsyncTask jsoupAsyncTask = new JsoupAsyncTask();
 //        jsoupAsyncTask.execute();
     }
 
-
-
-//private class JsoupAsyncTask extends AsyncTask<Void, Void, Void> {
+//    @Override
+//    protected void onPause() {
+//        super.onPause();
+//    }
+    //private class JsoupAsyncTask extends AsyncTask<Void, Void, Void> {
 //
 //    private String htmlPageUrl = "https://www.gjw.co.kr/Contents/contents.php?cmsNo=DA0200";
 ////            "https://www.gjw.co.kr/Contents/contents.php?cmsNo=DB0200";

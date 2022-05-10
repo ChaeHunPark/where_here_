@@ -11,7 +11,6 @@ import androidx.fragment.app.FragmentManager;
 import android.location.LocationManager;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.LinearLayout;
 
@@ -29,11 +28,9 @@ import com.naver.maps.map.util.FusedLocationSource;
 import com.tutorial2.where_here.lat_lng.lating;
 
 
-import java.util.HashMap;
-import java.util.List;
-
 public class Map extends AppCompatActivity implements OnMapReadyCallback {
 
+    public int r_m_Index;
     public int count =0;
     private static final int LOCATION_PERMISSION_REQUEST_CODE = 1000;
     private FusedLocationSource locationSource;
