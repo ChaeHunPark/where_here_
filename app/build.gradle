@@ -46,6 +46,7 @@ dependencies {
     implementation 'com.naver.maps:map-sdk:3.14.1' //naver map
     implementation 'com.google.android.gms:play-services-location:19.0.1' //gps
     implementation 'org.jsoup:jsoup:1.13.1'//파싱
+    implementation 'net.sourceforge.jexcelapi:jxl:2.6.12'
 //    implementation 'com.android.support:design:28.0.0' ani test
 
 }
