@@ -1,17 +1,16 @@
 package com.tutorial2.where_here;
 
-import androidx.appcompat.app.AlertDialog;
+
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.content.DialogInterface;
-import android.content.Intent;
+
 import android.os.Bundle;
 import android.util.Log;
-import android.view.View;
-import android.widget.AdapterView;
+
 import android.widget.ListView;
 
 import com.tutorial2.where_here.Info_Strings.Info_Strings;
+
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -20,50 +19,58 @@ import jxl.Sheet;
 import jxl.Workbook;
 import jxl.read.biff.BiffException;
 
+
+
 public class Info extends AppCompatActivity {
 
     public Info_Strings info_strings = new Info_Strings();
     public static int Rides_Index;
-    public static StringBuilder sb;
+    public static String value = "";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_info);
 
+        ListView listView = (ListView) findViewById(R.id.list_info); // 리스트의 아이디
+        ListitemAdapter_Info adapter = new ListitemAdapter_Info(); // adapter에 어댑터 클래스 참조
+        listView.setAdapter(adapter); // 찾은 아이디에 어댑터 지정
 
         //read
-        try{
+        try {
             InputStream is = getBaseContext().getResources().getAssets().open("where_rides.xls");
             Workbook wb = Workbook.getWorkbook(is);
 
-            if(wb != null){
-                Sheet sheet = wb.getSheet(0);
+            if(wb != null) {
+                Sheet sheet = wb.getSheet(0);   // 시트 불러오기
+                if(sheet != null) {
+                    int colTotal = sheet.getColumns();    // 전체 컬럼
+                    int rowIndexStart = 1;                  // row 인덱스 시작
 
-                if(sheet != null){
-                    int colTotal = sheet.getColumns();
-                    int rowStart = 1;
                     int rowTotal = sheet.getColumn(colTotal-1).length;
 
+                    StringBuilder sb;
+                    for(int row=rowIndexStart;row<rowTotal;row++) { // 1; 1<전체로우; 1++
+                        sb = new StringBuilder(); //스트링 공간 생성
+                        int index = 0;
+//                        for(int col=0;col<colTotal;col++) {// // 0; 0<전체컬럼의 길이 -1; 0++
+                            String title = sheet.getCell(0,row).getContents();
+                            String intro = sheet.getCell(1, row).getContents(); //
 
-                    for(int row = rowStart; row<rowTotal; row++){
-                        sb = new StringBuilder();
+                        adapter.addItem(new Listitem_Info(title,intro, info_strings.info_images[index])); // 커스텀 리스트 add
+                            sb.append(" "+title+" "+ intro);
+//                        }
+                        Log.i("test", sb.toString());
 
-                        for(int col = 0; col < colTotal; col++){
-                            String contents = sheet.getCell(col,row).getContents();
-                            sb.append("col" +col+ ":"+contents+" , ");
-                        }
-                        Log.i("test",sb.toString());
                     }
                 }
             }
-
-
-        } catch (IOException | BiffException e) {
+        } catch (IOException e) {
+            e.printStackTrace();
+        } catch (BiffException e) {
             e.printStackTrace();
         }
-
-        Log.i("Hello",sb.toString());
+    }
 
 
     }
@@ -155,4 +162,3 @@ public class Info extends AppCompatActivity {
 //    }
 //}
 
-}

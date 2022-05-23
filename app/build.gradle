@@ -46,7 +46,11 @@ dependencies {
     implementation 'com.naver.maps:map-sdk:3.14.1' //naver map
     implementation 'com.google.android.gms:play-services-location:19.0.1' //gps
     implementation 'org.jsoup:jsoup:1.13.1'//파싱
-    implementation 'net.sourceforge.jexcelapi:jxl:2.6.12'
+    implementation 'net.sourceforge.jexcelapi:jxl:2.6.12' // 엑셀 로드
+    implementation group: 'org.apache.poi', name: 'poi-ooxml', version: '3.17' //엑셀로드 2
+    implementation group: 'org.apache.xmlbeans', name: 'xmlbeans', version: '3.1.0' // 엑셀로드 2
+    implementation 'javax.xml.stream:stax-api:1.0'
+    implementation 'com.fasterxml:aalto-xml:1.2.2'
 //    implementation 'com.android.support:design:28.0.0' ani test
 
 }
