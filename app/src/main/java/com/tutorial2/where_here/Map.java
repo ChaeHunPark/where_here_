@@ -8,12 +8,15 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.FragmentManager;
 
+import android.content.Intent;
 import android.location.LocationManager;
 import android.os.Bundle;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.LinearLayout;
+import android.widget.Toast;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.naver.maps.geometry.LatLng;
@@ -23,9 +26,12 @@ import com.naver.maps.map.LocationTrackingMode;
 import com.naver.maps.map.MapFragment;
 import com.naver.maps.map.NaverMap;
 import com.naver.maps.map.OnMapReadyCallback;
+import com.naver.maps.map.overlay.InfoWindow;
 import com.naver.maps.map.overlay.Marker;
+import com.naver.maps.map.overlay.Overlay;
 import com.naver.maps.map.overlay.OverlayImage;
 import com.naver.maps.map.util.FusedLocationSource;
+import com.tutorial2.where_here.adapter.mapAdapter;
 import com.tutorial2.where_here.lat_lng.lating;
 
 
@@ -39,6 +45,8 @@ public class Map extends AppCompatActivity implements OnMapReadyCallback {
     private FusedLocationSource locationSource;
     private NaverMap naverMap;
     public lating lat_info = new lating();
+    private Marker[] marker_f = new Marker[10];
+    private InfoWindow infoWindow = new InfoWindow();
 
 
 
@@ -56,6 +64,10 @@ public class Map extends AppCompatActivity implements OnMapReadyCallback {
         CheckBox rest = (CheckBox) findViewById(R.id.btn_restaurant);
         CheckBox toilet = (CheckBox) findViewById(R.id.btn_toilet);
         CheckBox cigar = (CheckBox) findViewById(R.id.btn_cigar);
+        Button btn_main = (Button) findViewById(R.id.btn_main);
+        Button btn_reco = (Button) findViewById(R.id.btn_reco);
+        Button btn_info = (Button) findViewById(R.id.btn_info);
+        Button btn_back = (Button) findViewById(R.id.btn_back);
 
 
 
@@ -72,6 +84,29 @@ public class Map extends AppCompatActivity implements OnMapReadyCallback {
             fragmentManager.beginTransaction().add(R.id.map_fragment, mapFragment).commit();
         }
         mapFragment.getMapAsync(this);
+
+//intent btn setting
+        btn_main.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(Map.this, Main_where.class);
+                startActivity(intent);
+            }
+        });
+//        btn_reco.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                Intent intent = new Intent(Map.this, Main_where.class);
+//                startActivity(intent);
+//            }
+//        });
+        btn_info.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(Map.this, Info.class);
+                startActivity(intent);
+            }
+        });
 
 //fab를 눌렀을때 이벤트 처리를 위한 온클릭 리스너 장착
         fab.setOnClickListener(new View.OnClickListener() {
@@ -165,6 +200,25 @@ public class Map extends AppCompatActivity implements OnMapReadyCallback {
 // marker on
                     for(int i = 0; i<=4; i++){
                         setMarker(lat_info.marker_c[i], lat_info.lat_c[i], lat_info.lng_c[i], R.drawable.cigar, 0);
+                        lat_info.marker_c[i].setOnClickListener(new Overlay.OnClickListener() {
+                            @Override
+                            public boolean onClick(@NonNull Overlay overlay) {
+//                                Toast.makeText(Map.this, "시가다 시가", Toast.LENGTH_SHORT).show();
+                                ViewGroup rootView = (ViewGroup)findViewById(R.id.map_fragment);
+                                mapAdapter adapter = new mapAdapter(Map.this, rootView);
+
+                                infoWindow.setAdapter(adapter);
+
+                                //인포창의 우선순위
+                                infoWindow.setZIndex(10);
+                                //투명도 조정
+                                infoWindow.setAlpha(0.9f);
+                                //인포창 표시
+                                infoWindow.open(lat_info.marker_c2);
+
+                                return false;
+                            }
+                        });
                     }
                 } else {
 // marker off
@@ -175,6 +229,7 @@ public class Map extends AppCompatActivity implements OnMapReadyCallback {
                 }
             }
         });
+
 
     }
 

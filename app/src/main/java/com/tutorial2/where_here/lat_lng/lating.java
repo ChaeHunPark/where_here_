@@ -11,6 +11,7 @@ import java.util.List;
 import java.util.Map;
 
 public class lating {
+
     public Marker marker1 = new Marker();
     public Marker marker2 = new Marker();
     public Marker marker3 = new Marker();
