@@ -162,7 +162,7 @@ public class Map extends AppCompatActivity implements OnMapReadyCallback {
             @Override
             public void onClick(View v) {
                 if (cigar.isChecked()) {
-// marker on
+// marker on.
                     for(int i = 0; i<=4; i++){
                         setMarker(lat_info.marker_c[i], lat_info.lat_c[i], lat_info.lng_c[i], R.drawable.cigar, 0);
                     }
