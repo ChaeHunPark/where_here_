@@ -203,7 +203,7 @@ public class Map extends AppCompatActivity implements OnMapReadyCallback {
                         lat_info.marker_c[i].setOnClickListener(new Overlay.OnClickListener() {
                             @Override
                             public boolean onClick(@NonNull Overlay overlay) {
-//                                Toast.makeText(Map.this, "시가다 시가", Toast.LENGTH_SHORT).show();
+//                                Toast.makeText(Map.this, "시가다 시가", Toast.LENGTH_SHORT).show();lll
                                 ViewGroup rootView = (ViewGroup)findViewById(R.id.map_fragment);
                                 mapAdapter adapter = new mapAdapter(Map.this, rootView);
 
