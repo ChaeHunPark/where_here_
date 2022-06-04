@@ -80,8 +80,17 @@ public class Main_where extends AppCompatActivity {
             }
         });
 
-        Button btn_2 = (Button) findViewById(R.id.button3);
+        Button btn_2 = (Button) findViewById(R.id.button2);
         btn_2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(Main_where.this, Rating_Bar.class);
+                startActivity(intent);
+            }
+        });
+
+        Button btn_3 = (Button) findViewById(R.id.button3);
+        btn_3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(Main_where.this, Info.class);
