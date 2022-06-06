@@ -13,7 +13,12 @@
     <string name="rides">놀이기구를 선택하세요</string>
 
     <string-array name="rides">
-        <item>1</item>
+        <item>파에톤</item><item>메가드롭</item><item>토네이도</item><item>그랜드캐년대탐험</item>
+        <item>볼하우스</item><item>그랜드캐년대탐험</item><item>매직펌킨</item><item>문라이트세일</item><item>클라우드라이드</item>
+        <item>캐로셀</item><item>매직카</item><item>매직트리</item><item>미로탐험</item><item>비룡열차</item>
+        <item>패밀리바이킹</item><item>서라벌관람차</item><item>타가디스코</item><item>킹바이킹</item><item>에어벌룬</item>
+        <item>바운스스핀</item><item>댄싱컵</item><item>급류타기</item><item>가족열차</item><item>범퍼카</item>
+        <item>섬머린스플래쉬</item><item>드래곤레이스</item><item>크라크</item><item>드라켄</item><item>발키리</item>
     </string-array>
 </resources>
 

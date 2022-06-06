@@ -6,14 +6,19 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.AlertDialog;
 import android.app.ProgressDialog;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.RatingBar;
+import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -42,8 +47,9 @@ public class Rating_Bar extends AppCompatActivity {
     private TextView mTextViewResult;
 
     private RatingBar ratingBar;
-    private TextView textView;
-    private Button button, button2;
+    private TextView textView, textView2;
+    private Button submit;
+    private EditText content_et;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -51,20 +57,42 @@ public class Rating_Bar extends AppCompatActivity {
         setContentView(R.layout.activity_rating_bar);
 
         ratingBar = (RatingBar) findViewById(R.id.ratingBar);
+        content_et = (EditText) findViewById(R.id.content_et);
         textView = (TextView) findViewById(R.id.text);
-        button2 = (Button) findViewById(R.id.button2);
+        submit = (Button) findViewById(R.id.submit);
 
 
-        button.setOnClickListener(new View.OnClickListener() {
+
+        Spinner spinner = (Spinner) findViewById(R.id.spinner);
+        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this,
+                R.array.rides, android.R.layout.simple_spinner_item);
+        spinner.setAdapter(adapter);
+        spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                Toast.makeText(parent.getContext(),
+                        parent.getItemAtPosition(position).toString(),Toast.LENGTH_LONG).show();
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+
+            }
+        });
+
+
+        submit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 double score = ratingBar.getRating(); // 레이팅 값
                 textView.setText(String.valueOf(score));
 
+                String rides = spinner.getSelectedItem().toString();
                 double sc = Double.parseDouble(textView.getText().toString());
+                String content = content_et.getText().toString();
 
                 InsertData task = new InsertData();
-                task.execute("http://"+IP_ADDRESS+"/rating/insert.php", Double.toString(sc));
+                task.execute("http://192.168.0.16/rating/insert.php", rides, Double.toString(sc), content);
                 AlertDialog.Builder builder = new AlertDialog.Builder(Rating_Bar.this);
                 dialog = builder.setMessage("별점 제출 완료")
                         .setCancelable(false)
@@ -101,10 +129,12 @@ public class Rating_Bar extends AppCompatActivity {
         @Override
         protected String doInBackground(String... params) {
 
-            String score = (String) params[1];
+            String rides = (String) params[1];
+            String score = (String) params[2];
+            String content = (String) params[3];
             String serverURL = (String) params[0];
 
-            String postParameters = "score=" + score;
+            String postParameters = "rides" + rides + "&score=" + score + "&content" + content;
 
 
             try {

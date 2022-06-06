@@ -13,18 +13,20 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
+        android:textSize="20dp"
         android:text="@string/rides"/>
     <Spinner
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/spinner"
-        android:prompt="@string/rides"/>
+        android:prompt="@string/rides" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/text"
-        android:textSize="0dp"></TextView>
+        android:textSize="0dp"/>
+
 
     <RatingBar
         android:layout_width="wrap_content"
@@ -46,7 +48,7 @@
 
 
     <Button
-        android:id="@+id/reg_button"
+        android:id="@+id/submit"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="제출하기"
