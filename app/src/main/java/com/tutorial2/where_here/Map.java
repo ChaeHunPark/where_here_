@@ -41,7 +41,7 @@ import java.util.List;
 
 public class Map extends AppCompatActivity implements OnMapReadyCallback {
 
-    public int count =0;
+    public int count = 0;
     private static final int LOCATION_PERMISSION_REQUEST_CODE = 1000;
     public int markerNum;
     private FusedLocationSource locationSource;
