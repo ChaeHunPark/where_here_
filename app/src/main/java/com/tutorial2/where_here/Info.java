@@ -8,12 +8,13 @@ import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
 
+import com.tutorial2.where_here.adapter.ListitemAdapter_Info;
+import com.tutorial2.where_here.info_class.Listitem_Info;
 
 
 public class Info extends AppCompatActivity {

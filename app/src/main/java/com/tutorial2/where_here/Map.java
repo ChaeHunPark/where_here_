@@ -16,7 +16,6 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.LinearLayout;
-import android.widget.Toast;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.naver.maps.geometry.LatLng;
@@ -32,10 +31,10 @@ import com.naver.maps.map.overlay.Overlay;
 import com.naver.maps.map.overlay.OverlayImage;
 import com.naver.maps.map.util.FusedLocationSource;
 import com.tutorial2.where_here.adapter.mapAdapter;
-import com.tutorial2.where_here.lat_lng.lating;
+import com.tutorial2.where_here.info_class.lating;
 
-
-import java.util.HashMap;
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 public class Map extends AppCompatActivity implements OnMapReadyCallback {
@@ -45,8 +44,8 @@ public class Map extends AppCompatActivity implements OnMapReadyCallback {
     private FusedLocationSource locationSource;
     private NaverMap naverMap;
     public lating lat_info = new lating();
-    private Marker[] marker_f = new Marker[10];
     private InfoWindow infoWindow = new InfoWindow();
+    public String selectMarker;
 
 
 
@@ -67,7 +66,7 @@ public class Map extends AppCompatActivity implements OnMapReadyCallback {
         Button btn_main = (Button) findViewById(R.id.btn_main);
         Button btn_reco = (Button) findViewById(R.id.btn_reco);
         Button btn_info = (Button) findViewById(R.id.btn_info);
-        Button btn_back = (Button) findViewById(R.id.btn_back);
+        CheckBox btn_back = (CheckBox) findViewById(R.id.btn_back);
 
 
 
@@ -131,17 +130,27 @@ public class Map extends AppCompatActivity implements OnMapReadyCallback {
                 if (park.isChecked()) {
 // marker on
                     for(int i = 0; i<=28; i++){
-                        setMarker(lat_info.marker_1[i], lat_info.lat_1[i], lat_info.lng_1[i], R.drawable.park, 0);
+                        setMarker(lat_info.marker_a[i], lat_info.lat_1[i], lat_info.lng_1[i], R.drawable.park, 0);
+
                     }
                 } else {
 // marker off
 
                     for(int i=0;i<=28;i++) {
-                        lat_info.marker_1[i].setMap(null);
+                        lat_info.marker_a[i].setMap(null);
                     }
                 }
             }
         });
+
+//marker별 infowindow 개별제어
+        for(int i=0; i<lat_info.marker_a.length; i++) {
+            markerInfo(lat_info.marker_a[i]);
+        }
+
+
+
+// 포토존 미구현
 //        photo.setOnClickListener(new View.OnClickListener() {
 //            @Override
 //            public void onClick(View v) {
@@ -200,25 +209,6 @@ public class Map extends AppCompatActivity implements OnMapReadyCallback {
 // marker on.
                     for(int i = 0; i<=4; i++){
                         setMarker(lat_info.marker_c[i], lat_info.lat_c[i], lat_info.lng_c[i], R.drawable.cigar, 0);
-                        lat_info.marker_c[i].setOnClickListener(new Overlay.OnClickListener() {
-                            @Override
-                            public boolean onClick(@NonNull Overlay overlay) {
-//                                Toast.makeText(Map.this, "시가다 시가", Toast.LENGTH_SHORT).show();lll
-                                ViewGroup rootView = (ViewGroup)findViewById(R.id.map_fragment);
-                                mapAdapter adapter = new mapAdapter(Map.this, rootView);
-
-                                infoWindow.setAdapter(adapter);
-
-                                //인포창의 우선순위
-                                infoWindow.setZIndex(10);
-                                //투명도 조정
-                                infoWindow.setAlpha(0.9f);
-                                //인포창 표시
-                                infoWindow.open(lat_info.marker_c2);
-
-                                return false;
-                            }
-                        });
                     }
                 } else {
 // marker off
@@ -229,6 +219,7 @@ public class Map extends AppCompatActivity implements OnMapReadyCallback {
                 }
             }
         });
+
 
 
     }
@@ -245,6 +236,30 @@ public class Map extends AppCompatActivity implements OnMapReadyCallback {
         naverMap.getUiSettings().setLocationButtonEnabled(true);
         naverMap.setLocationTrackingMode(LocationTrackingMode.Face);
         naverMap.moveCamera(gyeongjuwd);
+    }
+
+//infowindow 정의
+    public void markerInfo(Marker mar){
+        mar.setOnClickListener(new Overlay.OnClickListener() {
+            @Override
+            public boolean onClick(@NonNull Overlay overlay) {
+                ViewGroup rootView = (ViewGroup)findViewById(R.id.map_fragment);
+                mapAdapter adapter = new mapAdapter(Map.this, rootView);
+
+
+                infoWindow.setAdapter(adapter);
+
+                //인포창의 우선순위
+                infoWindow.setZIndex(10);
+                //투명도 조정
+                infoWindow.setAlpha(0.9f);
+                //인포창 표시
+                infoWindow.open(mar);
+
+
+                return false;
+            }
+        });
     }
 
 //마커 옵션 정의
