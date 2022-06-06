@@ -20,7 +20,7 @@ import com.naver.maps.map.OnMapReadyCallback;
 import com.naver.maps.map.overlay.Marker;
 import com.naver.maps.map.overlay.OverlayImage;
 import com.naver.maps.map.util.FusedLocationSource;
-import com.tutorial2.where_here.lat_lng.lating;
+import com.tutorial2.where_here.info_class.lating;
 
 
 public class Info_to_Map extends AppCompatActivity implements OnMapReadyCallback{
@@ -100,7 +100,7 @@ public class Info_to_Map extends AppCompatActivity implements OnMapReadyCallback
 
 
             if (info.Rides_Index == i) //Info_to_Map에서 Intent 후 클릭한 인덱스 값과 같으면 초기로 마커를 띄움
-            setMarker(lat_info.marker_1[i], lat_info.lat_1[i], lat_info.lng_1[i], R.drawable.park, 0);
+            setMarker(lat_info.marker_a[i], lat_info.lat_1[i], lat_info.lng_1[i], R.drawable.park, 0);
         }
     }
 

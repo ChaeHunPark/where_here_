@@ -2,15 +2,12 @@
 // marker_1,lat_1,lng_1 = park / 2 = photo / 3 = restaurant / 4 = toilet / 5 = cigar
 
 //marker 1- 29 park / marker_p1- photh / marker_r1 - res / marker t-1 - toilet / marker_c1- cigar
-package com.tutorial2.where_here.lat_lng;
+package com.tutorial2.where_here.info_class;
 
 import com.naver.maps.map.overlay.Marker;
 
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-
 public class lating {
+
     public Marker marker1 = new Marker();
     public Marker marker2 = new Marker();
     public Marker marker3 = new Marker();
@@ -76,15 +73,21 @@ public class lating {
     public Marker marker_c5 = new Marker();
 
 
-
-
-    public Marker[] marker_1 = {marker1,marker2,marker3,marker4,marker5,marker6,marker7,marker8,marker9,marker10,
+    public String[] info = {"파에톤","메가드롭","토네이도","그랜드캐년대탐험","볼하우스","위자드트레인","매직펌킨","문라이트세일","클라우드라이드","캐로셀",
+            "매직카","매직트리","미로탐험","비룡열차","패밀리바이킹","서라벌관람차","타가디스코","킹바이킹","에어벌룬","바운스스핀",
+            "댄싱컵","급류타기","가족열차","범퍼카","섬머린스플래쉬","드래곤레이스","크라크","드라켄","발키리"};
+//놀이기구
+    public Marker[] marker_a = {marker1,marker2,marker3,marker4,marker5,marker6,marker7,marker8,marker9,marker10,
                                 marker11,marker12,marker13,marker14,marker15,marker16,marker17,marker18,marker19,marker20,
                                 marker21,marker22,marker23,marker24,marker25,marker26,marker27, marker28, marker29};
+//포토존
     public Marker[] marker_p = {};
+//식당
     public Marker[] marker_r = {marker_r1,marker_r2, marker_r3, marker_r4,marker_r5,marker_r6,marker_r7,marker_r8,
                                 marker_r9,marker_r10,marker_r11,marker_r12,marker_r13,marker_r14,marker_r15,marker_r16};
+//화장실
     public Marker[] marker_t = {marker_t1,marker_t2,marker_t3,marker_t4,marker_t5,marker_t6,marker_t7};
+//흡연구역
     public Marker[] marker_c = {marker_c1,marker_c2,marker_c3,marker_c4,marker_c5};
 
     public double[] lat_1 = {35.8356756, 35.836504, 35.8369161, 35.8361529, 35.8364915,

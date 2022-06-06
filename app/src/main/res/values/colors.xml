@@ -10,4 +10,10 @@
 
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+
+    <color name="green1">#CCFFFF</color>
+    <color name="green2">#CCFF33</color>
+
+    <color name="pink1">#FF66FF</color>
+    <color name="pink2">#FF66CC</color>
 </resources>

@@ -1,4 +1,4 @@
-package com.tutorial2.where_here;
+package com.tutorial2.where_here.adapter;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -8,6 +8,9 @@ import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+
+import com.tutorial2.where_here.info_class.Listitem_Info;
+import com.tutorial2.where_here.R;
 
 import java.util.ArrayList;
 

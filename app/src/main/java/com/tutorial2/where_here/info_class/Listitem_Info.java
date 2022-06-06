@@ -1,4 +1,4 @@
-package com.tutorial2.where_here;
+package com.tutorial2.where_here.info_class;
 
 import android.graphics.drawable.Drawable;
 
