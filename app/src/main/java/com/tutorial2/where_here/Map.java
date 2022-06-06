@@ -16,6 +16,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.CheckBox;
+import android.widget.ImageButton;
 import android.widget.LinearLayout;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
@@ -74,7 +75,7 @@ public class Map extends AppCompatActivity implements OnMapReadyCallback {
         CheckBox toilet = (CheckBox) findViewById(R.id.btn_toilet);
         CheckBox cigar = (CheckBox) findViewById(R.id.btn_cigar);
         Button btn_main = (Button) findViewById(R.id.btn_main);
-        Button btn_reco = (Button) findViewById(R.id.btn_reco);
+        ImageButton btn_reco = (ImageButton) findViewById(R.id.btn_reco);
         Button btn_info = (Button) findViewById(R.id.btn_info);
         CheckBox btn_back = (CheckBox) findViewById(R.id.btn_back);
 

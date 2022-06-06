@@ -35,9 +35,9 @@
         android:id="@+id/menu_bar"
         android:layout_width="match_parent"
         android:layout_height="200dp"
-        android:background="@color/white"
         android:orientation="vertical"
-        android:visibility="gone"
+        android:visibility="visible"
+        android:background="@color/w"
         app:layout_constraintBottom_toBottomOf="@+id/map_fragment">
 
         <LinearLayout
@@ -98,23 +98,29 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-
+                android:backgroundTint="@color/teal_200"
+                android:textStyle="bold"
+                android:textColor="@color/white"
                 android:layout_weight="1"
                 android:text="Home" />
 
-            <Button
+
+            <ImageButton
                 android:id="@+id/btn_reco"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:layout_weight="1"
-                android:text="Button" />
+                android:backgroundTint="@color/teal_200"
+                app:srcCompat="@android:drawable/btn_star_big_on" />
 
             <Button
                 android:id="@+id/btn_info"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
+                android:backgroundTint="@color/teal_200"
+                android:textStyle="bold"
                 android:layout_weight="1"
                 android:text="info" />
         </LinearLayout>

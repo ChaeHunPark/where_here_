@@ -16,4 +16,7 @@
 
     <color name="pink1">#FF66FF</color>
     <color name="pink2">#FF66CC</color>
+    <color name="pink3">#8CFF66FF</color>
+
+    <color name="w">#8CFFFFFF</color>
 </resources>
