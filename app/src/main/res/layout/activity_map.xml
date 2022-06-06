@@ -37,7 +37,7 @@
         android:layout_height="200dp"
         android:background="@color/white"
         android:orientation="vertical"
-        android:visibility="visible"
+        android:visibility="gone"
         app:layout_constraintBottom_toBottomOf="@+id/map_fragment">
 
         <LinearLayout

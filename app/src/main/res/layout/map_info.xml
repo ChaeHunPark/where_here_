@@ -32,8 +32,8 @@
 
         <CheckBox
             android:id="@+id/btn_back"
-            android:layout_width="16dp"
-            android:layout_height="16dp"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
             android:layout_weight="1"
             android:layout_gravity="center"
             android:button="@drawable/x_status"
