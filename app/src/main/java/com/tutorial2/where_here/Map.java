@@ -104,13 +104,13 @@ public class Map extends AppCompatActivity implements OnMapReadyCallback {
                 startActivity(intent);
             }
         });
-//        btn_reco.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                Intent intent = new Intent(Map.this, Main_where.class);
-//                startActivity(intent);
-//            }
-//        });
+        btn_reco.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(Map.this, Rating_Bar.class);
+                startActivity(intent);
+            }
+        });
         btn_info.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

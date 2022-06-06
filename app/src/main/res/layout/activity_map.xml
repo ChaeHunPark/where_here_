@@ -38,7 +38,7 @@
         android:layout_width="match_parent"
         android:layout_height="200dp"
         android:orientation="vertical"
-        android:visibility="visible"
+        android:visibility="gone"
         android:background="@color/w"
         app:layout_constraintBottom_toBottomOf="@+id/map_fragment">
 
