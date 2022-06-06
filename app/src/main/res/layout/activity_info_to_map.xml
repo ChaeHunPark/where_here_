@@ -4,14 +4,38 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Info_to_Map">
+    tools:context=".Info_to_Map"
+    android:orientation="horizontal">
+
+
 
     <fragment
         android:id="@+id/info_to_mapf"
         android:name="com.naver.maps.map.MapFragment"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        tools:layout_editor_absoluteX="0dp"
-        tools:layout_editor_absoluteY="39dp" />
+        android:layout_height="match_parent"/>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <Button
+            android:layout_width="74dp"
+            android:layout_height="wrap_content"
+            android:background="@drawable/back"
+            android:id="@+id/btn_back"/>
+        <View
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_weight="1" />
+
+        <Button
+            android:layout_width="85dp"
+            android:layout_height="67dp"
+            android:layout_gravity="right"
+            android:background="@drawable/back_to_map"
+            android:id="@+id/btn_backToMap"/>
+
+    </LinearLayout>
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -4,8 +4,11 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.FragmentManager;
 
+import android.content.Intent;
 import android.location.LocationManager;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
 
 import com.naver.maps.geometry.LatLng;
 import com.naver.maps.map.CameraAnimation;
@@ -34,6 +37,26 @@ public class Info_to_Map extends AppCompatActivity implements OnMapReadyCallback
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_info_to_map);
+
+        Button btn_back = (Button) findViewById(R.id.btn_back);
+        Button btn_backToMap = (Button) findViewById(R.id.btn_backToMap);
+
+        btn_back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
+
+        btn_backToMap.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(Info_to_Map.this, Map.class);
+                startActivity(intent);
+                finish();
+            }
+        });
+
 
 //위치소스, 각종 버튼 선언
         locationSource = new FusedLocationSource(this, LOCATION_PERMISSION_REQUEST_CODE);
