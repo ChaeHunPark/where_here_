@@ -34,7 +34,7 @@ import java.net.URL;
 
 public class Rating_Bar extends AppCompatActivity {
 
-    private static String IP_ADDRESS = "서버 IP주소";
+    private static String IP_ADDRESS = "192.168.0.16";
     private static String TAG = "phpsignup";
     private boolean validate = false;
 
@@ -55,6 +55,7 @@ public class Rating_Bar extends AppCompatActivity {
         button = (Button) findViewById(R.id.button);
         button2 = (Button) findViewById(R.id.button2);
 
+
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -64,9 +65,7 @@ public class Rating_Bar extends AppCompatActivity {
                 double sc = Double.parseDouble(textView.getText().toString());
 
                 InsertData task = new InsertData();
-                task.execute("http://192.168.112.70/rating/insert.php", sc + "");
-                textView.setText("");
-
+                task.execute("http://"+IP_ADDRESS+"/rating/insert.php", Double.toString(sc));
                 AlertDialog.Builder builder = new AlertDialog.Builder(Rating_Bar.this);
                 dialog = builder.setMessage("별점 제출 완료")
                         .setCancelable(false)
@@ -92,27 +91,20 @@ public class Rating_Bar extends AppCompatActivity {
         @Override
         protected void onPreExecute() {
             super.onPreExecute();
-
-            progressDialog = ProgressDialog.show(Rating_Bar.this,
-                    "Please Wait", null, true, true);
         }
 
 
         @Override
         protected void onPostExecute(String result) {
             super.onPostExecute(result);
-            progressDialog.dismiss();
-            Log.d(TAG, "POST response  - " + result);
-
         }
 
         @Override
         protected String doInBackground(String... params) {
 
             String score = (String) params[1];
-
-
             String serverURL = (String) params[0];
+
             String postParameters = "score=" + score;
 
 
