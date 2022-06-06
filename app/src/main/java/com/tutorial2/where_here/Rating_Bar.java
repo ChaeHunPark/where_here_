@@ -52,7 +52,6 @@ public class Rating_Bar extends AppCompatActivity {
 
         ratingBar = (RatingBar) findViewById(R.id.ratingBar);
         textView = (TextView) findViewById(R.id.text);
-        button = (Button) findViewById(R.id.button);
         button2 = (Button) findViewById(R.id.button2);
 
 

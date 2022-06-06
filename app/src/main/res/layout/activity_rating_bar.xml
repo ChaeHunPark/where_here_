@@ -7,6 +7,25 @@
     tools:context=".Rating_Bar"
     android:orientation="vertical">
 
+
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:text="@string/rides"/>
+    <Spinner
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/spinner"
+        android:prompt="@string/rides"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/text"
+        android:textSize="0dp"></TextView>
+
     <RatingBar
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -14,22 +33,26 @@
         android:numStars="5"
         android:rating="2"
         android:stepSize="0.5"></RatingBar>
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Submit"
-        android:id="@+id/button"></Button>
+
+    <EditText
+        android:id="@+id/content_et"
+        android:padding="16dp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:background="#eeeeee"
+        android:hint="내용을 입력하세요."
+        />
+
 
     <Button
-        android:id="@+id/button2"
+        android:id="@+id/reg_button"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="intent"></Button>
+        android:text="제출하기"
+        android:textColor="#FFFFFF"
+        android:background="#C62828"/>
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/text"
-        android:textSize="30dp"></TextView>
+
 
 </LinearLayout>
