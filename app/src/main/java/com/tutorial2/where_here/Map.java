@@ -8,6 +8,7 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.FragmentManager;
 
+import android.content.Context;
 import android.content.Intent;
 import android.location.LocationManager;
 import android.os.Bundle;
@@ -41,11 +42,20 @@ public class Map extends AppCompatActivity implements OnMapReadyCallback {
 
     public int count =0;
     private static final int LOCATION_PERMISSION_REQUEST_CODE = 1000;
+    public int markerNum;
     private FusedLocationSource locationSource;
     private NaverMap naverMap;
     public lating lat_info = new lating();
     private InfoWindow infoWindow = new InfoWindow();
     public String selectMarker;
+    public List<String> mi = new ArrayList<String>();
+    public static Context mContext;
+
+
+    public String[] find = {"marker1","marker2","marker3","marker4","marker5","marker6","marker7","marker8","marker9","marker10",
+            "marker11","marker12","marker13","marker14","marker15","marker16","marker17","marker18","marker19","marker20",
+            "marker21","marker22","marker23","marker24","marker25","marker26","marker27", "marker28","marker29"};
+
 
 
 
@@ -67,6 +77,7 @@ public class Map extends AppCompatActivity implements OnMapReadyCallback {
         Button btn_reco = (Button) findViewById(R.id.btn_reco);
         Button btn_info = (Button) findViewById(R.id.btn_info);
         CheckBox btn_back = (CheckBox) findViewById(R.id.btn_back);
+
 
 
 
@@ -221,7 +232,7 @@ public class Map extends AppCompatActivity implements OnMapReadyCallback {
         });
 
 
-
+        mContext = this;
     }
 
 //navermap setting
@@ -241,8 +252,19 @@ public class Map extends AppCompatActivity implements OnMapReadyCallback {
 //infowindow 정의
     public void markerInfo(Marker mar){
         mar.setOnClickListener(new Overlay.OnClickListener() {
+
             @Override
             public boolean onClick(@NonNull Overlay overlay) {
+                List<String> mi = new ArrayList<String>();
+                for(int i=0;i<lat_info.marker_a.length;i++) {
+                    if (mar == lat_info.marker_a[i]) {
+                        mi.add("marker" + (i+1));
+                    }
+                }
+                selectMarker = mi.toString().replaceAll("\\[|\\]", "").replaceAll(", ",", ");
+                markerNum = Arrays.asList(find).indexOf(selectMarker);
+
+
                 ViewGroup rootView = (ViewGroup)findViewById(R.id.map_fragment);
                 mapAdapter adapter = new mapAdapter(Map.this, rootView);
 
